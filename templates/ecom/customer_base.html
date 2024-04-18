@@ -248,22 +248,19 @@ body {
 </style>
 </head>
 <body>
-  {%if request.user.is_authenticated%}
-    {% include "ecom/customer_navbar.html" %}
-  {%else%}
-  <div id="navbar">
+<div id="navbar">
     <div class="container">
         <div class="row row1">
             <ul class="largenav pull-right">
-              <li class="upper-links dropdown"><a class="links" href="">Login & Sign Up</a>
-                  <ul class="dropdown-menu">
-                      <li class="profile-li"><a class="profile-links" href="/customerlogin">Login</a></li>
-                      <li class="profile-li"><a class="profile-links" href="/customersignup">Sign Up</a></li>
-                  </ul>
-              </li>
 
-                <li class="upper-links"><a class="links" href="/admin">Admin</a></li>
-                <li class="upper-links"><a class="links" href="/aboutus">About Us</a></li>
+                <li class="upper-links"><a class="links" href="/my-order">Track Orders</a></li>
+                <li class="upper-links"><a class="links" href="/my-profile">Profile</a></li>
+                <li class="upper-links">
+                     <form action="{% url 'logout' %}" method="post">
+                              {% csrf_token %}
+                              <button type="submit">Log Out</button>
+                          </form>
+                </li>
 
             </ul>
         </div>
@@ -271,7 +268,6 @@ body {
             <div class="col-sm-3">
                 <h2 style="margin:0px;"><a style="text-decoration:none; color:white;" href="/"><span class="largenav">MedStore </span></a></h2>
             </div>
-
 
             <div class="navbar-search smallsearch col-sm-7 col-xs-11">
               <form  action="/search" method="get">
@@ -292,8 +288,6 @@ body {
         </div>
     </div>
 </div>
-  {%endif%}
-
 <!-- content start-->
 {% block content %}
 
@@ -316,7 +310,7 @@ body {
       <div class="col-md-12 col-sm-12">
         <div style="color:#ffffff;" class="wow fadeInUp footer-copyright">
           <p>MedStore in Python using Django Framework<br>
-            &copy; 2024  </p>
+            &copy; 2024 </p>
         </div>
       </div>
     </div>

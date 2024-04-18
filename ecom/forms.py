@@ -12,6 +12,15 @@ class CustomerUserForm(forms.ModelForm):
         }
 
 
+class CustomerUpdateUserForm(forms.ModelForm):
+    class Meta:
+        model = User
+        fields = ['first_name', 'last_name', 'username']
+        widgets = {
+            'password': forms.PasswordInput()
+        }
+
+
 class CustomerForm(forms.ModelForm):
     class Meta:
         model = models.Customer
