@@ -1,0 +1,22 @@
+{% extends 'ecom/homebase.html' %}
+{% load static %}
+{% block content %}
+<br><br><br>
+<!-- <img src="{% static "images/logout_img.png" %}"  style="width:800px; height:100px; padding-left:400px;"> -->
+
+<center>
+    <h2>You've logged out successfully!</h2>
+</center>
+    <p>You are not logged in</p>
+<center>
+<a href="{% url 'customerlogin' %}" class="align-center">Log In</a>
+    <center>
+
+
+
+
+<br><br><br><br><br>
+<br><br><br><br><br>
+<br><br><br>
+
+{% endblock content %}
