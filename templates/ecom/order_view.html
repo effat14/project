@@ -1,0 +1,45 @@
+{% extends 'ecom/customer_base.html' %}
+{% load static %}
+
+{% block content %}
+    <br><br><br>
+<div class="container">
+					<table class="display" border='2' align="center"  style="width:100%">
+						<thead>
+							<tr>
+                                <th>Order Code</th>
+                                <th>First Name</th>
+                                <th>Last Name</th>
+                                <th>Email</th>
+                                <th>Address</th>
+                                <th>Phone</th>
+                                <th>Total Price</th>
+                                <th></th>
+							</tr>
+						</thead>
+						<tbody>
+                            {% for order in orders %}
+                                  
+                                <tr>
+                                    <td>{{order.id}}</td>
+                                    <td>{{order.user.first_name}}</td>
+                                    <td>{{order.user.last_name}}</td>
+                                    <td>{{order.email}}</td>
+                                    <td>{{order.address}}</td>
+                                    <td>{{order.mobile}}</td>
+                                    <td>{{order.total_price}}</td>
+                                    <td><a href="{% url 'order_details' order.id %}">Details</a></td>
+
+                                </tr>
+                               
+                             {% endfor %}
+						</tbody>
+					</table>
+    <br><br><br><br><br><br>
+    <div>
+        <a  class="btn btn-primary" type="button" href="{% url 'home' %}">Continue Shopping</a>
+    </div>
+
+</div>
+{% endblock content %}
+
